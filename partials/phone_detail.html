@@ -1,0 +1,39 @@
+<div class="data-load" ng-class="{active:loadFinish}" loader-screen="yes">
+<div class="phone-images">
+	<img ng-src="{{media.src}}" class="phone" ng-repeat="media in medias" alt="{{media.title}}" 
+	ng-class="{animate_hor:mainImage==media.src}"
+	/>
+  
+</div>
+
+<h1>{{phone.title}}</h1>
+
+<p ng-bind-html="phone.content | renderHtml">{{phone.description}}</p>
+
+<ul class="phone-thumbs data-load">
+  <li ng-repeat="media in medias" >
+		
+		
+		<figure>
+			<img ng-src="{{media.src}}" alt="{{media.title}}" ng-mouseenter="setImage(media.src)" />
+		</figure>
+		
+	</li>
+</ul>
+
+<ul class="specs">
+  
+  <li>
+    <span ng-show="phone.acf.additional_features">Additional Features</span>
+    <dd ng-bind-html="phone.acf.additional_features | renderHtml"></dd>
+  </li>
+</ul>
+<dl>
+      <dt>Infrared</dt>
+      <dd>{{phone.acf.infrared | checkMark}}</dd>
+      <dt>GPS</dt>
+      <dd>{{phone.acf.gps | checkMark}}</dd>
+    </dl>
+
+
+</div>
